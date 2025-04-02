@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Colaborador</title>
+    <link rel="stylesheet" href="criar-colaborador.css">
+</head>
+<body>
+
+  <div class="bodi">
+    <div class="conten">
+      <div class="registration-container">
+        <div class="registration-header">
+          <h2>Criar Colaborador</h2>
+          <span class="divider"></span>
+        </div>
+        <div class="registration-body">
+          <form id="registration-form" enctype="multipart/form-data">
+            <div class="registration-box">
+              <div class="input-box">
+                <label>Primeiro Nome</label>
+                <input type="text" class="input-field" name="primeiro_nome" placeholder="Primeiro Nome do Colaborador">
+              </div>
+              <div class="input-box">
+                <label>Último Nome</label>
+                <input type="text" class="input-field" name="ultimo_nome" placeholder="Último Nome do Colaborador">
+              </div>
+              <div class="input-box">
+                <label>Número de Contato</label>
+                <input type="tel" class="input-field" name="numero_contato" placeholder="Número de contato do Colaborador">
+              </div>
+              <div class="input-box">
+                <label>E-mail</label>
+                <input type="email" class="input-field" name="email" placeholder="E-mail do Colaborador">
+              </div>
+              <div class="input-box">
+                <label>Nome de Usuário</label>
+                <input type="text" class="input-field" name="nome_usuario" placeholder="Nome de usuário do Colaborador">
+              </div>
+              <div class="input-box">
+                <label>Senha</label>
+                <input type="password" class="input-field" name="senha" placeholder="Senha do Colaborador">
+              </div>
+            </div>
+
+            <div class="profile-picture-container">
+              <label for="profile-picture" class="photo-label">Foto</label>
+              <div class="photo-upload-box">
+                <input type="file" id="profile-picture" name="profile-picture" accept="image/*">
+                <span id="file-name">Nenhum arquivo escolhido</span>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-register">Registrar Agora</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("registration-form").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const formData = new FormData(this);
+
+        fetch("http://localhost:3000/api/criar-colaborador", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            alert(data);
+        })
+        .catch(error => {
+            console.error("Erro ao registrar colaborador:", error);
+        });
+    });
+  </script>
+
+</body>
+</html>

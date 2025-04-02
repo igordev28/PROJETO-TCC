@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>DashBoard Adm</title>
+  </head>
+  <body>
+    <div class="sidebar">
+      <a href="#" class="logo">
+        <img src="assets/logo_senai.png" alt="Logo" class="logo-img">
+      </a>
+      <ul class="side-menu">
+        <li>
+          <a href="#" id="inicio"><i class="bx bx-home"></i>Início</a>
+        </li>
+        <li>
+          <a href="#" data-page="criar-colaborador.html"><i class="bx bx-user-plus"></i>Criar Colaborador</a>
+        </li>
+        <li>
+          <a href="#" data-page="visualizar-perfil.html"><i class="bx bx-user"></i>Visualizar Perfil</a>
+        </li>
+        <li>
+          <a href="#" data-page="colaboradores.html"><i class="bx bx-group"></i>Colaboradores</a>
+        </li>
+        <li>
+          <a href="#" data-page="visualizar-horarios.html"><i class="bx bx-time"></i>Visualizar Horários</a>
+        </li>
+        <li>
+          <a href="#" data-page="configuracoes.html"><i class="bx bx-cog"></i>Configurações</a>
+        </li>
+      </ul>
+      <ul class="side-menu">
+        <li>
+          <a href="#" class="logout">
+            <i class="bx bx-log-out-circle"></i>
+            Sair
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="content">
+      <nav>
+        <i class="bx bx-menu"></i>
+        <form action="#">
+          <div class="form-input">
+            <input type="search" placeholder="Search..." />
+            <button class="search-btn" type="submit">
+              <i class="bx bx-search"></i>
+            </button>
+          </div>
+        </form>
+        <input type="checkbox" id="theme-toggle" hidden />
+        <label for="theme-toggle" class="theme-toggle"></label>
+        <a href="#" class="notif">
+          <i class="bx bx-bell"></i>
+          <span class="count">12</span>
+        </a>
+        <a href="#" class="profile">
+          <img src="assets/logo.png" />
+        </a>
+      </nav>
+      <main id="content">
+        <!-- O conteúdo das páginas será carregado aqui -->
+      </main>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
