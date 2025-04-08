@@ -46,6 +46,7 @@ window.addEventListener("resize", () => {
   }
 });
 
+// Função pra mudar o tema do sistema
 const toggler = document.getElementById("theme-toggle");
 
 toggler.addEventListener("change", function () {
