@@ -212,6 +212,39 @@ document.getElementById("profile-picture").addEventListener("change", function(e
   }
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const links = document.querySelectorAll('[data-page]');
+  const content = document.getElementById('content');
+
+  links.forEach(link => {
+    link.addEventListener('click', async (e) => {
+      e.preventDefault();
+      const page = link.getAttribute('data-page');
+      if (page) {
+        try {
+          const res = await fetch(page);
+          const html = await res.text();
+          content.innerHTML = html;
+
+          // executa scripts embutidos no conteúdo carregado
+          const scripts = content.querySelectorAll("script");
+          scripts.forEach(oldScript => {
+            const newScript = document.createElement("script");
+            newScript.text = oldScript.textContent;
+            document.body.appendChild(newScript).parentNode.removeChild(newScript);
+          });
+        } catch (err) {
+          console.error("Erro ao carregar página:", err);
+          content.innerHTML = "<p>Erro ao carregar conteúdo.</p>";
+        }
+      }
+    });
+  });
+});
+
+
 
 // Carrega os horários ao abrir a página
 carregarHorarios();
+
+
